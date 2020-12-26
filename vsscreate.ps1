@@ -1,0 +1,1 @@
+(Get-WmiObject Win32_ShadowCopy -List).Create("C:\", "ClientAccessible")
