@@ -29,3 +29,64 @@ class ExtendedBIOSParameterBlock(object):
 class MasterFileTable(object):
     def __init__(self, data):
         pass
+
+# File record:
+#
+#    MULTI_SECTOR_HEADER
+# uchar[4]  Signature
+# ushort    UpdateSequenceArrayOffset
+# ushort    UpdateSequenceArraySize
+#
+#    FILE_REFERENCE
+# ulong     Low
+# ushort    High
+# ushort    Sequence
+#
+#    UPDATE_SEQUENCE_ARRAY
+#
+#
+#    FILE_RECORD_SEGMENT_HEADER
+# multi_sector_header
+# ulonglong Reserved
+# ushort    SequenceNumber
+# ushort    Reserved
+# ushort    FirstAttributeOffset
+# ushort    Flags
+# ulong[2]  Reserved
+# file_reference
+# ushort    Reserved
+# update_sequence_array
+#
+#    ATTRIBUTE_RECORD_HEADER
+# attribute_type_code
+# ulong     RecordLength
+# uchar     FormCode
+# uchar     NameLength
+# ushort    NameOffset
+# ushort    Flags
+# ushort    Instance
+# union {
+#   struct {
+# ulong     ValueLength
+# ushort    ValueOffset
+# uchar[2]  Reserved
+#   } Resident
+#   struct {
+# vcn       LowestVcn
+# vcn       HighestVcn
+# ushort    MappingPairsOffset
+# uchar[6]  Reserved
+# longlong  AllocatedLength
+# longlong  FileSize
+# longlong  ValidDataLength
+# longlong  TotalAllocated
+#   } Nonresident
+# }
+#
+#    ATTRIBUTE_LIST_ENTRY
+# attribute_type_code
+# ushort    RecordLength
+# uchar     AttributeNameLength
+# uchar     AttributeNameOffset
+# vcn       LowestVcn
+# mft_segment

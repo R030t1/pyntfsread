@@ -21,6 +21,10 @@ def main() -> int:
     f.seek(vbr._mft_start)
     mft = f.read(vbr._bytes_per_record)
 
+    print(f'MFT start: {vbr._mft_start:x}')
+    print(f'MFT record size: {vbr._bytes_per_record}')
+    print()
+
     i = 1
     for b in mft:
         print(f'{b:02x}',
