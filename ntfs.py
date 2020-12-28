@@ -37,7 +37,7 @@ class MasterFileTable(object):
 # ushort    UpdateSequenceArrayOffset
 # ushort    UpdateSequenceArraySize
 #
-#    FILE_REFERENCE
+#    FILE_REFERENCE / SEGEMENT_REFERENCE
 # ulong     Low
 # ushort    High
 # ushort    Sequence
@@ -89,4 +89,6 @@ class MasterFileTable(object):
 # uchar     AttributeNameLength
 # uchar     AttributeNameOffset
 # vcn       LowestVcn
-# mft_segment
+# segment_reference
+# ushort    Reserved
+# wchar[]   AttributeName
