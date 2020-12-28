@@ -15,6 +15,18 @@ def main() -> int:
         print(f'{b:02x}',
             end=(' ' if i % 32 else '\n'))
         i += 1
+    print()
+
+    vbr = ntfs.VolumeBootRecord(head)
+    f.seek(vbr._mft_start)
+    mft = f.read(vbr._bytes_per_record)
+
+    i = 1
+    for b in mft:
+        print(f'{b:02x}',
+            end=(' ' if i % 32 else '\n'))
+        i += 1
+
 
     f.close()
     sc.close()
